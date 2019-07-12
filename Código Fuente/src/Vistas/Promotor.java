@@ -38,17 +38,17 @@ public class Promotor implements Vista{
         btaceptar=new Button("Aceptar");
       
         
-        VBox labels=new VBox(10);
+        VBox labels=new VBox(13);
         labels.getChildren().addAll(lnombre,ledad,lId);
-        labels.setAlignment(Pos.CENTER);
+        
         VBox texts=new VBox();
         texts.getChildren().addAll(tfnombre, tfedad, tfid, btaceptar);
-        texts.setAlignment(Pos.CENTER);
+        
         HBox layout=new HBox();
         layout.getChildren().addAll(labels,texts);
-        layout.setAlignment(Pos.CENTER);
         
-        escena=new Scene(layout,500,500);
+        
+        escena=new Scene(layout,250,150);
         
     }
 

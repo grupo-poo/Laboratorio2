@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -17,7 +18,7 @@ import javafx.scene.control.TextField;
 public class Proyecto {
     private Label lnombre;
     private Label ldescripcion;
-    private Label lCostoMinimo;
+    private Label lcostoMinimo;
     private TextField tfnombre;
     private TextField tfcostoMinimo;
     private TextArea tadescripcion;
@@ -26,7 +27,19 @@ public class Proyecto {
     
     public Proyecto(){
         lnombre=new Label("Nombre: ");
-        ldescripcion=new Label("Descripción: ")
+        ldescripcion=new Label("Descripción: ");
+        lcostoMinimo=new Label("Costo Mínimo: ");
+        VBox labels=new VBox();
+        labels.getChildren().addAll(lnombre,lcostoMinimo,ldescripcion);
+        tfnombre=new TextField();
+        tfcostoMinimo=new TextField();
+        tadescripcion=new TextArea();
+        aceptar=new Button("Aceptar");
+        VBox texts=new VBox();
+        texts.getChildren().addAll(tfnombre,tfcostoMinimo, tadescripcion);
+        
+        
+        
     }
     
 }
