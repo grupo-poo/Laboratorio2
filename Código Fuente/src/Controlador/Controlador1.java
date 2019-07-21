@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import Vistas.Select;
 import Vistas.Promotor;
+import Vistas.Vista;
 import Vistas.baseDatos;
 import javafx.scene.Scene;
 public class Controlador1 {
@@ -21,11 +22,13 @@ public class Controlador1 {
 
         @Override
         public void handle(ActionEvent event) {
-            Singleton singleton = Singleton.getSingleton();
-            Stage stage = singleton.getStage();
-            Promotor escena2 = new Promotor();
-            stage.setScene(escena2.getScene());
-            stage.show();
+             Singleton singleton = Singleton.getSingleton();
+          Stage stage = singleton.getStage();
+                    
+          Controlador2 controlador = new Controlador2();
+          Vista vista = controlador.getPromotor();
+          stage.setScene(vista.getScene());
+          stage.show();
 //            Controlador2 controlador = new Controlador2();
 //            Promotor escena = controlador.getEscena();
         }
@@ -36,10 +39,21 @@ public class Controlador1 {
         @Override
         public void handle(ActionEvent event) {
             Singleton singleton = Singleton.getSingleton();
-            Stage stage = singleton.getStage();
-            baseDatos escena2 = new baseDatos();
-            stage.setScene(escena2.getScene());
-            stage.show();
+          Stage stage = singleton.getStage();
+                    
+          Controlador2 controlador = new Controlador2();
+          Vista vista = controlador.getPromotor();
+          stage.setScene(vista.getScene());
+          stage.show();
         }
     }
+
+    public Select getSelect() {
+        return select;
+    }
+
+    public void setSelect(Select select) {
+        this.select = select;
+    }
+    
 }
