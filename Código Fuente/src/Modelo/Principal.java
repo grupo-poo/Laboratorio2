@@ -6,6 +6,8 @@ package Modelo;
  * and open the template in the editor.
  */
 
+import Controlador.Controlador1;
+import Controlador.Singleton;
 import Vistas.*;
 import Tipos.ProyectoClase;
 import javafx.application.Application;
@@ -32,10 +34,12 @@ public class Principal extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        baseDatos p=new baseDatos();
-        p.addProyecto(new ProyectoClase("PojectoPasasdasdsadasdasdasdasdasdasdasdasasda", "Hola, soy un proyecto", 10, 10));
-        primaryStage.setTitle("Data base");
-        primaryStage.setScene(p.getScene());
+        Controlador1 controlador1 = new Controlador1();
+        Vista vista = controlador1.getEscena();
+        Scene esc = vista.getScene();
+        Singleton singleton = Singleton.getSingleton();
+        singleton.setStage(primaryStage);
+        primaryStage.setScene(esc);
         primaryStage.show();
     }
 
