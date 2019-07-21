@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vistas;
 
 import javafx.geometry.Pos;
@@ -13,11 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-/**
- *
- * @author diegocarvajal
- */
 public class Promotor implements Vista{
+    private String home = "🏠"+"  Home";
     private Label lnombre;
     private Label ledad;
     private Label lId;
@@ -25,8 +17,12 @@ public class Promotor implements Vista{
     private TextField tfedad;
     private TextField tfid;
     private Button btaceptar;
+    private Button houseBt;
     private Scene escena;
-    
+
+    public Button getHouseBt() {
+        return houseBt;
+    }
     
     public Promotor(){
         lnombre=new Label("Nombre");
@@ -36,18 +32,20 @@ public class Promotor implements Vista{
         tfedad=new TextField();
         tfid=new TextField();
         btaceptar=new Button("Aceptar");
+        houseBt = new Button(home);
       
         
-        VBox labels=new VBox(13);
+        VBox labels = new VBox(13);
         labels.getChildren().addAll(lnombre,ledad,lId);
         
-        VBox texts=new VBox();
+        VBox texts = new VBox();
         texts.getChildren().addAll(tfnombre, tfedad, tfid, btaceptar);
         
-        HBox layout=new HBox();
-        layout.getChildren().addAll(labels,texts);
+        HBox principal = new HBox();
+        principal.getChildren().addAll(labels,texts);
         
-        
+        VBox layout = new VBox();
+        layout.getChildren().addAll(houseBt,principal);
         escena=new Scene(layout,250,150);
         
     }

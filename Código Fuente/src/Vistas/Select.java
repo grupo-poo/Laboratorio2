@@ -23,9 +23,16 @@ public class Select implements Vista{
     private Button promotor;
     private Button inversionista;
     private Scene escena;
+
+    public Button getPromotor() {
+        return promotor;
+    }
+
+    public Button getInversionista() {
+        return inversionista;
+    }
     
-    
-    public Select() {
+   public Select() {
         titulo=new Label();
         titulo.setText("¿Quién sos?");
         promotor=new Button("Promotor");
@@ -42,14 +49,5 @@ public class Select implements Vista{
     public Scene getScene() {
         return escena;
     }
-    
-    
-    
-    
-    
-    
-    
 
-
-    
 }

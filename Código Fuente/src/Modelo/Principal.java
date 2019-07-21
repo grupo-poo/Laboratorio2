@@ -7,6 +7,7 @@ package Modelo;
  */
 
 import Controlador.Controlador1;
+import Controlador.Controlador2;
 import Controlador.Singleton;
 import Vistas.*;
 import Tipos.ProyectoClase;
@@ -35,6 +36,7 @@ public class Principal extends Application {
     @Override
     public void start(Stage primaryStage) {
         Controlador1 controlador1 = new Controlador1();
+        Controlador2 controlador2 = new Controlador2();
         Vista vista = controlador1.getEscena();
         Scene esc = vista.getScene();
         Singleton singleton = Singleton.getSingleton();
