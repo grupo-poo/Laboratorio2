@@ -54,6 +54,79 @@ public class Promotor implements Vista{
     public Scene getScene() {
        return escena;
     }
+
+    public String getHome() {
+        return home;
+    }
+
+    public void setHome(String home) {
+        this.home = home;
+    }
+
+    public Label getLnombre() {
+        return lnombre;
+    }
+
+    public void setLnombre(Label lnombre) {
+        this.lnombre = lnombre;
+    }
+
+    public Label getLedad() {
+        return ledad;
+    }
+
+    public void setLedad(Label ledad) {
+        this.ledad = ledad;
+    }
+
+    public Label getlId() {
+        return lId;
+    }
+
+    public void setlId(Label lId) {
+        this.lId = lId;
+    }
+
+    public TextField getTfnombre() {
+        return tfnombre;
+    }
+
+    public void setTfnombre(TextField tfnombre) {
+        this.tfnombre = tfnombre;
+    }
+
+    public TextField getTfedad() {
+        return tfedad;
+    }
+
+    public void setTfedad(TextField tfedad) {
+        this.tfedad = tfedad;
+    }
+
+    public TextField getTfid() {
+        return tfid;
+    }
+
+    public void setTfid(TextField tfid) {
+        this.tfid = tfid;
+    }
+
+    public Button getBtaceptar() {
+        return btaceptar;
+    }
+
+    public void setBtaceptar(Button btaceptar) {
+        this.btaceptar = btaceptar;
+    }
+
+    public Scene getEscena() {
+        return escena;
+    }
+
+    public void setEscena(Scene escena) {
+        this.escena = escena;
+    }
+    
     
     
 }

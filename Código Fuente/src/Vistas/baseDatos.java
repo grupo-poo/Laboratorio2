@@ -1,5 +1,6 @@
 package Vistas;
 
+import Tipos.BaseDatos;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -10,27 +11,34 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import Tipos.ProyectoClase;
+import Tipos.*;
+import javafx.scene.control.Button;
 
 public class baseDatos implements Vista{
     private Label proyectos;
     private TableView table;
-    private TableColumn<ProyectoClase,String> autor;
+    private TableColumn<ProyectoClase,String> financiado;
     private TableColumn<ProyectoClase,String> nombre;
     private TableColumn<ProyectoClase, Integer> costoInicial;
     private TableColumn<ProyectoClase, Integer> costoMinimo;
     private TableColumn tasaInteres;
     private ObservableList<ProyectoClase> listaObjetos;
     
+    private Button comprar;
+    private Button RegresarInicio;
+    
     private Scene escena;
 
-    public baseDatos() {
+    public baseDatos(BaseDatos baseDatos) {
+        comprar=new Button("Comprar");
+        RegresarInicio=new Button("Home");
         proyectos = new Label("Proyectos");
         table = new TableView();
         listaObjetos= FXCollections.observableArrayList();
         table.setItems(listaObjetos);
         
-        autor = new TableColumn<>("autor");
+         financiado= new TableColumn<>("Financiado");
+        financiado.setCellValueFactory(new PropertyValueFactory<ProyectoClase, String>("financiado"));
         
         
         nombre = new TableColumn<>("Nombre");
@@ -43,25 +51,45 @@ public class baseDatos implements Vista{
         costoMinimo = new TableColumn<>("Costo Minimo");
         costoMinimo.setCellValueFactory(new PropertyValueFactory<ProyectoClase, Integer>("costoMinimo"));
         //Tasa de interés - Colomna 
-        tasaInteres = new TableColumn("tasa de interés");
+        tasaInteres = new TableColumn("Tasa de Interés");
         
-        table.getColumns().addAll(autor, nombre, costoInicial, costoMinimo, tasaInteres);
         
-        VBox layout = new VBox();
+        for(PromotorClase p: baseDatos.getPromotores()){
+           listaObjetos.add(p.getProyecto());
+        }
         
-        layout.getChildren().addAll(proyectos,table);
-        layout.setAlignment(Pos.CENTER);
+        table.getColumns().addAll(financiado, nombre, costoInicial, costoMinimo, tasaInteres);
+        GridPane layout=new GridPane();
         
-        escena=new Scene(layout,500,500);
-    }
-    
-    
-    public void addProyecto(ProyectoClase e){
-        listaObjetos.add(e);
+        
+        layout.add(table, 0, 0);
+        layout.add(comprar, 3, 2);
+        layout.add(RegresarInicio, 5,2);
+        
+        
+        escena=new Scene(layout,600,300);
     }
 
     @Override
     public Scene getScene() {
         return escena;
     }
+
+    public Button getComprar() {
+        return comprar;
+    }
+
+    public void setComprar(Button comprar) {
+        this.comprar = comprar;
+    }
+
+    public Button getRegresarInicio() {
+        return RegresarInicio;
+    }
+
+    public void setRegresarInicio(Button RegresarInicio) {
+        this.RegresarInicio = RegresarInicio;
+    }
+    
+    
 }

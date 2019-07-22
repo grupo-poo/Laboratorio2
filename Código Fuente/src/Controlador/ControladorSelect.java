@@ -1,4 +1,5 @@
 package Controlador;
+import Tipos.BaseDatos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
@@ -7,16 +8,16 @@ import Vistas.Promotor;
 import Vistas.Vista;
 import Vistas.baseDatos;
 import javafx.scene.Scene;
-public class Controlador1 {
+public class ControladorSelect {
     private Select select;
+    private BaseDatos baseDatos;
     
-    public Select getEscena(){
-        return select;
-    }
-    public Controlador1(){
+   
+    public ControladorSelect(BaseDatos baseDatos){
         this.select = new Select();
         this.select.getPromotor().setOnAction(new Evento1());
         this.select.getInversionista().setOnAction(new Evento2());
+        this.baseDatos=baseDatos;
     }
     private class Evento1 implements EventHandler<ActionEvent>{
 
@@ -25,7 +26,7 @@ public class Controlador1 {
              Singleton singleton = Singleton.getSingleton();
           Stage stage = singleton.getStage();
                     
-          Controlador2 controlador = new Controlador2();
+          ControladorPromotor controlador = new ControladorPromotor(baseDatos);
           Vista vista = controlador.getPromotor();
           stage.setScene(vista.getScene());
           stage.show();
@@ -41,7 +42,7 @@ public class Controlador1 {
             Singleton singleton = Singleton.getSingleton();
           Stage stage = singleton.getStage();
                     
-          Controlador2 controlador = new Controlador2();
+          ControladorPromotor controlador = new ControladorPromotor(baseDatos);
           Vista vista = controlador.getPromotor();
           stage.setScene(vista.getScene());
           stage.show();

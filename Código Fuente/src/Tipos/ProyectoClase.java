@@ -20,12 +20,13 @@ public class ProyectoClase {
     private Integer costoInicial;
     private Integer costoMinimo;
     private Integer costoFinal;
+    private boolean financiado;
 
-    public ProyectoClase(String nombre, String descripcion, int costoInicial, int costoMinimo) {
+    public ProyectoClase(String nombre, String descripcion, String costoInicial, String costoMinimo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.costoInicial = costoInicial;
-        this.costoMinimo = costoMinimo;
+        this.costoInicial = Integer.parseInt(costoInicial);
+        this.costoMinimo = Integer.parseInt(costoMinimo);
     }
 
     public String getNombre() {
@@ -67,6 +68,16 @@ public class ProyectoClase {
     public void setCostoFinal(int costoFinal) {
         this.costoFinal = costoFinal;
     }
+
+    public boolean isFinanciado() {
+        return financiado;
+    }
+
+    public void setFinanciado(boolean financiado) {
+        this.financiado = financiado;
+    }
+    
+    
     
     
     

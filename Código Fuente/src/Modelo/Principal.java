@@ -6,9 +6,10 @@ package Modelo;
  * and open the template in the editor.
  */
 
-import Controlador.Controlador1;
-import Controlador.Controlador2;
+import Controlador.ControladorSelect;
+import Controlador.ControladorPromotor;
 import Controlador.Singleton;
+import Tipos.BaseDatos;
 import Vistas.*;
 import Tipos.ProyectoClase;
 import javafx.application.Application;
@@ -35,9 +36,11 @@ public class Principal extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Controlador1 controlador1 = new Controlador1();
-        Controlador2 controlador2 = new Controlador2();
-        Vista vista = controlador1.getEscena();
+        
+        BaseDatos bd=new BaseDatos();
+        ControladorSelect controladorSelect = new ControladorSelect(bd);
+        ControladorPromotor controladorSeect = new ControladorPromotor(bd);
+        Vista vista = controladorSelect.getSelect();
         Scene esc = vista.getScene();
         Singleton singleton = Singleton.getSingleton();
         singleton.setStage(primaryStage);
